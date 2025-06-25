@@ -21,7 +21,7 @@
 ### 1.1 Pangolin:
 
 ```bash
-    git clone https://github.com/stevenlovegrove/Pangolin.git
+    git clone https://github.com/stevenlovegrove/Pangolin.git -b v0.9.0
     cd Pangolin
     mkdir build && cd build
     cmake ..
@@ -50,7 +50,7 @@
 #### Clone the repo:
 
 ```bash
-    git clone https://gitflic.ru/project/stratim/orb_slam3_ros_wrapper.git
+    git clone https://github.com/ViktorDanilin/orb_slam_ros_wrapper.git
 ```
 
 #### Building package
