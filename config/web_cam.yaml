@@ -1,0 +1,101 @@
+%YAML:1.0
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+Camera.type: "PinHole"
+# Left Camera calibration and distortion parameters (OpenCV)
+Camera.fx: 420.18752603850595
+Camera.fy: 419.4097866174495
+Camera.cx: 259.6132756077165
+Camera.cy: 310.46132437707473
+Camera.k1: 0.13410521740965098
+Camera.k2: -0.13259930852474314
+Camera.p1: 0.0003190908123507151
+Camera.p2: 0.001511016018538736
+# Camera.bFishEye: 1
+Camera.width: 480
+Camera.height: 640
+# Camera frames per second
+Camera.fps: 29.8
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+# Close/Far threshold. Baseline times.
+ThDepth: 40.0
+# For baseline = 64mm so, its 0.064 * fx.
+# Camera.bf: 56.68014256238786
+# Lapping area between images (camera have nearly 180 FOV so i use the full width)
+# Camera.lappingBegin: 0
+# Camera.lappingEnd: 0
+# Transformation from camera 0 to body-frame (imu)
+Tbc: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [-0.02180678752329544, -0.9983098570810025, -0.0538692238000614, 0.03244271043677833,
+          -0.999745527406531, 0.022085959712670595, -0.004592473647884943, -0.0030884445757775486,
+          0.005774465217669281, 0.05375536846192709, -0.9985374384132881, -0.04615861934691545,
+          0.0, 0.0, 0.0, 1.0]
+IMU.InsertKFsWhenLost: 0
+# IMU noise
+IMU.NoiseGyro: 0.09224966
+IMU.NoiseAcc: 0.24989907
+IMU.GyroWalk: 4.491780327017004e-03
+IMU.AccWalk: 4.680140903193514e-03
+IMU.Frequency: 200
+IMU.InitTime: 2.0 # Allow 2 seconds for IMU initialization (default may be shorter)
+IMU.InfoThreshold: 2.0
+IMU.PredictionWeight: 1.5
+Tracking.useIMU: 1
+System.TimeShiftMS: 10.0
+IMU.InitVelocity: 0.5
+IMU.InitBiasGyrWalk: 0.0001
+IMU.InitBiasAccWalk: 0.0001
+VIBA.MinFeatures: 15
+IMU.InitScale: 1.0
+IMU.MinInitScaleSigma: 0.3
+VIBA.MinScaleFactor: 0.1
+Tracking.SearchWindowSize: 20
+Tracking.MatchRatio: 0.7
+Tracking.MinTrackPoints: 8
+# Tracking.UsePnP: 1
+# Tracking.MinFeatures: 30
+# Tracking.ThresholdFastInit: 50
+# Tracking.LoadMap: 0
+# Tracking.ThreshStereo: 2.5
+# Tracking.UseVelocity: 1
+# Tracking.VelocityWeight: 0.7
+LoopClosing.Active: 1
+LoopClosing.MinimumConnections: 2
+LocalMapping.KeyFramesPerSecond: 0.5
+LocalMapping.RecentAddedMapPoints: 100
+# Relocalization.MaxFrames: 10
+# Tracking.SearchWindowSize: 15
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 2500 # Tested with 1250
+ORBextractor.searchRadius: 15
+# ORB Extractor: Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+# ORB Extractor: Number of levels in the scale pyramid
+ORBextractor.nLevels: 10
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast
+ORBextractor.iniThFAST: 20 # 20
+ORBextractor.minThFAST: 8 # 7
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500
